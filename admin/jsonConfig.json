@@ -1,0 +1,67 @@
+{
+  "i18n": true,
+  "type": "tabs",
+  "items": {
+    "tabMain": {
+      "type": "panel",
+      "label": "Settings",
+      "items": {
+        "headerSerial": {
+          "type": "header",
+          "size": 4,
+          "text": "Serial Port Settings"
+        },
+        "serialPort": {
+          "type": "text",
+          "label": "Serial Port Path (e.g. COM3 or /dev/ttyUSB0)",
+          "sm": 8,
+          "default": ""
+        },
+        "infoSerial": {
+          "type": "staticText",
+          "text": "Specify the connection path to your Becker Centronic USB Stick.",
+          "style": {
+            "fontStyle": "italic",
+            "color": "gray"
+          }
+        }
+      }
+    },
+    "tabUnits": {
+      "type": "panel",
+      "label": "Units",
+      "items": {
+        "headerUnits": {
+          "type": "header",
+          "size": 4,
+          "text": "Virtual Becker Remotes (Units)"
+        },
+        "units": {
+          "type": "table",
+          "label": "Paired Units & Remotes",
+          "items": [
+            {
+              "type": "text",
+              "attr": "name",
+              "title": "Remote Name",
+              "width": "200px"
+            },
+            {
+              "type": "text",
+              "attr": "id",
+              "title": "Unit Code (5 hex chars, e.g. 1737b)",
+              "width": "180px"
+            },
+            {
+              "type": "number",
+              "attr": "increment",
+              "title": "Rolling Code Counter (starts at 0)",
+              "width": "150px",
+              "default": 0
+            }
+          ]
+        }
+      }
+    }
+  }
+}

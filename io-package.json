@@ -1,0 +1,65 @@
+{
+  "common": {
+    "name": "becker-antrieb-becker-centronic--usb",
+    "version": "0.1.0",
+    "title": "Becker Centronic USB",
+    "titleLang": {
+      "en": "Becker Centronic USB",
+      "de": "Becker Centronic USB"
+    },
+    "desc": {
+      "en": "Control Becker Centronic RF roller shutters using a USB Serial Stick",
+      "de": "Becker Centronic RF Rollläden mit einem USB-Seriell-Stick steuern"
+    },
+    "platform": "Javascript/Node.js",
+    "mode": "daemon",
+    "icon": "becker-antrieb.png",
+    "enabled": true,
+    "type": "shutter",
+    "keywords": [
+      "becker",
+      "centronic",
+      "shutter",
+      "roller",
+      "blind"
+    ],
+    "authors": [
+      "Apfelwurm1"
+    ],
+    "dependencies": [
+      {
+        "js-controller": ">=5.0.0"
+      }
+    ],
+    "adminUI": {
+      "config": "json"
+    }
+  },
+  "native": {
+    "serialPort": "",
+    "units": []
+  },
+  "instanceObjects": [
+    {
+      "_id": "info",
+      "type": "channel",
+      "common": {
+        "name": "Information"
+      },
+      "native": {}
+    },
+    {
+      "_id": "info.connection",
+      "type": "state",
+      "common": {
+        "role": "indicator.connected",
+        "name": "Adapter or serial device connected",
+        "type": "boolean",
+        "read": true,
+        "write": false,
+        "def": false
+      },
+      "native": {}
+    }
+  ]
+}
