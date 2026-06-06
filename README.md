@@ -43,4 +43,4 @@ Für jede angelegte Unit (z. B. `1737b`) erzeugt der Adapter automatisch die Kan
 ---
 
 ## Lizenz
-MIT Lizenz. Copyright (c) Apfelwurm1.
+MIT Lizenz. 
