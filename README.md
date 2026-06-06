@@ -43,4 +43,6 @@ Für jede angelegte Unit (z. B. `1737b`) erzeugt der Adapter automatisch die Kan
 ---
 
 ## Lizenz
-MIT Lizenz. 
+MIT Lizenz.
+
+[Older changelogs can be found there](CHANGELOG_OLD.md)
