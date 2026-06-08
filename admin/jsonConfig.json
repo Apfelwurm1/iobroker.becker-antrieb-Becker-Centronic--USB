@@ -14,12 +14,21 @@
         "serialPort": {
           "type": "text",
           "label": "Serial Port Path (e.g. COM3 or /dev/ttyUSB0)",
+          "xs": 12,
           "sm": 8,
+          "md": 6,
+          "lg": 4,
+          "xl": 3,
           "default": ""
         },
         "infoSerial": {
           "type": "staticText",
           "text": "Specify the connection path to your Becker Centronic USB Stick.",
+          "xs": 12,
+          "sm": 12,
+          "md": 12,
+          "lg": 12,
+          "xl": 12,
           "style": {
             "fontStyle": "italic",
             "color": "gray"
@@ -39,6 +48,11 @@
         "units": {
           "type": "table",
           "label": "Paired Units & Remotes",
+          "xs": 12,
+          "sm": 12,
+          "md": 12,
+          "lg": 12,
+          "xl": 12,
           "items": [
             {
               "type": "text",

@@ -1,0 +1,12 @@
+{
+  "Settings": "Налаштування",
+  "Serial Port Settings": "Налаштування послідовного порту",
+  "Serial Port Path (e.g. COM3 or /dev/ttyUSB0)": "Шлях до послідовного порту (наприклад, COM3 або /dev/ttyUSB0)",
+  "Specify the connection path to your Becker Centronic USB Stick.": "Вкажіть шлях підключення до вашого USB-накопичувача Becker Centronic.",
+  "Units": "Пристрої",
+  "Virtual Becker Remotes (Units)": "Віртуальні пульти Becker (пристрої)",
+  "Paired Units & Remotes": "Сполучені пристрої та пульти",
+  "Remote Name": "Ім's пульта",
+  "Unit Code (5 hex chars, e.g. 1737b)": "Код пристрою (5 шістнадцяткових символів, наприклад, 1737b)",
+  "Rolling Code Counter (starts at 0)": "Лічильник змінного коду (починається з 0)"
+}

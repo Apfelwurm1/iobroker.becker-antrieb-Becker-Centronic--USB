@@ -1,5 +1,5 @@
 /**
- * ioBroker.becker-antrieb-becker-centronic--usb
+ * ioBroker.becker-centronic-usb
  *
  * Control Becker Centronic RF roller shutters using a USB Serial Stick
  */
@@ -19,11 +19,11 @@ class BeckerCentronicUsb extends utils.Adapter {
   /**
    * @param {Partial<utils.AdapterOptions>} [options]
    */
-  constructor(options) {
-    super({
-      ...options,
-      name: 'becker-antrieb-becker-centronic--usb',
-    });
+   constructor(options) {
+     super({
+       ...options,
+       name: 'becker-centronic-usb',
+     });
     this.on('ready', this.onReady.bind(this));
     this.on('stateChange', this.onStateChange.bind(this));
     this.on('unload', this.onUnload.bind(this));
@@ -284,7 +284,7 @@ class BeckerCentronicUsb extends utils.Adapter {
 
     this.log.debug(`State change requested: ${id} = ${state.val}`);
 
-    // Expecting: becker-antrieb-becker-centronic--usb.0.units.<unitId>.ch<channel>.<stateName>
+    // Expecting: becker-centronic-usb.0.units.<unitId>.ch<channel>.<stateName>
     const parts = id.split('.');
     if (parts.length < 6 || parts[2] !== 'units') return;
 

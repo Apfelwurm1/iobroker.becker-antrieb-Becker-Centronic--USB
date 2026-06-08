@@ -1,21 +1,39 @@
 {
   "common": {
-    "name": "becker-antrieb-becker-centronic--usb",
+    "name": "becker-centronic-usb",
     "version": "0.1.0",
-    "title": "Becker Centronic USB",
     "titleLang": {
       "en": "Becker Centronic USB",
-      "de": "Becker Centronic USB"
+      "de": "Becker Centronic USB",
+      "ru": "Becker Centronic USB",
+      "pt": "Becker Centronic USB",
+      "nl": "Becker Centronic USB",
+      "fr": "Becker Centronic USB",
+      "it": "Becker Centronic USB",
+      "es": "Becker Centronic USB",
+      "pl": "Becker Centronic USB",
+      "uk": "Becker Centronic USB",
+      "zh-cn": "Becker Centronic USB"
     },
     "desc": {
       "en": "Control Becker Centronic RF roller shutters using a USB Serial Stick",
-      "de": "Becker Centronic RF Rollläden mit einem USB-Seriell-Stick steuern"
+      "de": "Becker Centronic RF Rollläden mit einem USB-Seriell-Stick steuern",
+      "ru": "Управление рольставнями Becker Centronic RF с помощью USB-последовательного накопителя",
+      "pt": "Controle as persianas de enrolar Becker Centronic RF usando um stick serial USB",
+      "nl": "Stuur Becker Centronic RF-rolluiken aan met een USB-seriële stick",
+      "fr": "Contrôlez les volets roulants Becker Centronic RF à l'aide d'une clé USB série",
+      "it": "Controlla le tapparelle avvolgibili Becker Centronic RF utilizando una chiavetta seriale USB",
+      "es": "Controle las persianas enrollables Becker Centronic RF con una memoria USB serie",
+      "pl": "Steruj roletami Becker Centronic RF za pomocą klucza USB Serial",
+      "uk": "Керуйте рольставнями Becker Centronic RF за допомогою послідовного USB-накопичувача",
+      "zh-cn": "使用 USB 串口棒控制 Becker Centronic RF 卷帘"
     },
     "platform": "Javascript/Node.js",
     "mode": "daemon",
     "icon": "becker-antrieb.png",
+    "extIcon": "https://raw.githubusercontent.com/Apfelwurm1/ioBroker.becker-centronic-usb/main/admin/becker-antrieb.png",
     "enabled": true,
-    "type": "shutter",
+    "type": "climate-control",
     "keywords": [
       "becker",
       "centronic",
@@ -28,9 +46,28 @@
     ],
     "dependencies": [
       {
-        "js-controller": ">=5.0.0"
+        "js-controller": ">=6.0.11"
       }
     ],
+    "globalDependencies": [
+      {
+        "admin": ">=7.6.20"
+      }
+    ],
+    "licenseInformation": {
+      "type": "free",
+      "license": "MIT"
+    },
+    "news": {
+      "0.1.0": {
+        "en": "Initial release",
+        "de": "Erstveröffentlichung"
+      }
+    },
+    "tier": 3,
+    "connectionType": "local",
+    "dataSource": "hardware",
+    "compact": true,
     "adminUI": {
       "config": "json"
     }

@@ -1,0 +1,12 @@
+{
+  "Settings": "Instellingen",
+  "Serial Port Settings": "Seriële poort instellingen",
+  "Serial Port Path (e.g. COM3 or /dev/ttyUSB0)": "Pad naar seriële poort (bijv. COM3 of /dev/ttyUSB0)",
+  "Specify the connection path to your Becker Centronic USB Stick.": "Geef het verbindingspad naar uw Becker Centronic USB-stick op.",
+  "Units": "Eenheden",
+  "Virtual Becker Remotes (Units)": "Virtuele Becker afstandsbedieningen (eenheden)",
+  "Paired Units & Remotes": "Gekoppelde eenheden & afstandsbedieningen",
+  "Remote Name": "Naam afstandsbediening",
+  "Unit Code (5 hex chars, e.g. 1737b)": "Unitcode (5 hexadecimale tekens, bijv. 1737b)",
+  "Rolling Code Counter (starts at 0)": "Rolling code teller (begint bij 0)"
+}

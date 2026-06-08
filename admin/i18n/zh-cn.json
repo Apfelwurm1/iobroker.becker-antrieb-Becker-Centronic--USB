@@ -1,0 +1,12 @@
+{
+  "Settings": "设置",
+  "Serial Port Settings": "串口设置",
+  "Serial Port Path (e.g. COM3 or /dev/ttyUSB0)": "串口路径（例如 COM3 或 /dev/ttyUSB0）",
+  "Specify the connection path to your Becker Centronic USB Stick.": "指定 Becker Centronic USB 棒 la 的连接路径。",
+  "Units": "设备",
+  "Virtual Becker Remotes (Units)": "虚拟 Becker 遥控器（设备）",
+  "Paired Units & Remotes": "配对的设备与遥控器",
+  "Remote Name": "遥控器名称",
+  "Unit Code (5 hex chars, e.g. 1737b)": "设备代码（5 位十六进制字符，例如 1737b）",
+  "Rolling Code Counter (starts at 0)": "滚动码计数器（从 0 开始）"
+}

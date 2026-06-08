@@ -1,0 +1,12 @@
+{
+  "Settings": "Ustawienia",
+  "Serial Port Settings": "Ustawienia portu szeregowego",
+  "Serial Port Path (e.g. COM3 or /dev/ttyUSB0)": "Ścieżka portu szeregowego (np. COM3 lub /dev/ttyUSB0)",
+  "Specify the connection path to your Becker Centronic USB Stick.": "Określ ścieżkę połączenia dla Becker Centronic USB Stick.",
+  "Units": "Jednostki",
+  "Virtual Becker Remotes (Units)": "Wirtualne piloty Becker (jednostki)",
+  "Paired Units & Remotes": "Sparowane jednostki i piloty",
+  "Remote Name": "Nazwa pilota",
+  "Unit Code (5 hex chars, e.g. 1737b)": "Kod jednostki (5 znaków szesnastkowych, np. 1737b)",
+  "Rolling Code Counter (starts at 0)": "Licznik kodu zmiennego (zaczyna się od 0)"
+}
