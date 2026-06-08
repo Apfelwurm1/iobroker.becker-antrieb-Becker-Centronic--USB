@@ -1,7 +1,7 @@
 {
   "common": {
     "name": "becker-centronic-usb",
-    "version": "0.1.0",
+    "version": "0.1.3",
     "titleLang": {
       "en": "Becker Centronic USB",
       "de": "Becker Centronic USB",
@@ -22,7 +22,7 @@
       "pt": "Controle as persianas de enrolar Becker Centronic RF usando um stick serial USB",
       "nl": "Stuur Becker Centronic RF-rolluiken aan met een USB-seriële stick",
       "fr": "Contrôlez les volets roulants Becker Centronic RF à l'aide d'une clé USB série",
-      "it": "Controlla le tapparelle avvolgibili Becker Centronic RF utilizzando una chiavetta seriale USB",
+      "it": "Controlla le tapparelle avvolgibili Becker Centronic RF utilizando una chiavetta seriale USB",
       "es": "Controle las persianas enrollables Becker Centronic RF con una memoria USB serie",
       "pl": "Steruj roletami Becker Centronic RF za pomocą klucza USB Serial",
       "uk": "Керуйте рольставнями Becker Centronic RF за допомогою послідовного USB-накопичувача",
@@ -59,6 +59,10 @@
       "license": "MIT"
     },
     "news": {
+      "0.1.3": {
+        "en": "Fix serial port select dropdown and add unit code generator button",
+        "de": "Fehlerbehebung für seriellen Anschluss und Hinzufügen des Code-Generators"
+      },
       "0.1.0": {
         "en": "Initial release",
         "de": "Erstveröffentlichung"
@@ -70,7 +74,8 @@
     "compact": true,
     "adminUI": {
       "config": "json"
-    }
+    },
+    "messagebox": true
   },
   "native": {
     "manualMode": true,
