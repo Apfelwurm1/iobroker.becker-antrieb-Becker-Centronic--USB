@@ -42,7 +42,7 @@ class BeckerCentronicUsb extends utils.Adapter {
     this.log.info('Starting Becker Centronic USB adapter...');
 
     // Resolve port path (dropdown select or manual input)
-    this.portPath = this.config.serialPort === 'manual' ? this.config.serialPortManual : this.config.serialPort;
+    this.portPath = this.config.manualMode ? this.config.serialPortManual : this.config.serialPort;
 
     // 1. Initialize objects/states
     await this.initUnits();
@@ -357,9 +357,7 @@ class BeckerCentronicUsb extends utils.Adapter {
   async onMessage(obj) {
     this.log.info(`Received message command: ${obj ? obj.command : 'undefined'}`);
     if (obj && obj.command === 'getSerialPorts' && obj.callback) {
-      const options = [
-        { value: 'manual', label: 'Manuelle Eingabe / Custom Path' }
-      ];
+      const options = [];
       let currentVal = '';
       try {
         const instanceConfig = await this.getForeignObjectAsync(`system.adapter.${this.namespace}`);
@@ -383,7 +381,7 @@ class BeckerCentronicUsb extends utils.Adapter {
             currentValFound = true;
           }
         }
-        if (currentVal && currentVal !== 'manual' && !currentValFound) {
+        if (currentVal && !currentValFound) {
           options.push({
             value: currentVal,
             label: `${currentVal} (Aktuell konfiguriert - nicht verbunden)`
@@ -391,7 +389,7 @@ class BeckerCentronicUsb extends utils.Adapter {
         }
       } catch (err) {
         this.log.error(`Failed to list serial ports: ${err.message}`);
-        if (currentVal && currentVal !== 'manual') {
+        if (currentVal) {
           options.push({
             value: currentVal,
             label: `${currentVal} (Aktuell konfiguriert)`

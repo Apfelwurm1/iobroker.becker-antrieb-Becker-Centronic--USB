@@ -73,6 +73,7 @@
     }
   },
   "native": {
+    "manualMode": true,
     "serialPort": "manual",
     "serialPortManual": "",
     "units": []

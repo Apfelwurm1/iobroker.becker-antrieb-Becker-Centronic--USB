@@ -9,5 +9,7 @@
   "Paired Units & Remotes": "Сопряженные устройства и пульты",
   "Remote Name": "Имя пульта",
   "Unit Code (5 hex chars, e.g. 1737b)": "Код устройства (5 шестнадцатеричных символов, например, 1737b)",
-  "Rolling Code Counter (starts at 0)": "Счетчик скользящего кода (начинается с 0)"
+  "Rolling Code Counter (starts at 0)": "Счетчик скользящего кода (начинается с 0)",
+  "Manual Path Entry (e.g. for offline adapter or initial installation)": "Manual Path Entry (e.g. for offline adapter or initial installation)",
+  "Detected Serial Ports": "Detected Serial Ports"
 }

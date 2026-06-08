@@ -9,5 +9,7 @@
   "Paired Units & Remotes": "Sparowane jednostki i piloty",
   "Remote Name": "Nazwa pilota",
   "Unit Code (5 hex chars, e.g. 1737b)": "Kod jednostki (5 znaków szesnastkowych, np. 1737b)",
-  "Rolling Code Counter (starts at 0)": "Licznik kodu zmiennego (zaczyna się od 0)"
+  "Rolling Code Counter (starts at 0)": "Licznik kodu zmiennego (zaczyna się od 0)",
+  "Manual Path Entry (e.g. for offline adapter or initial installation)": "Manual Path Entry (e.g. for offline adapter or initial installation)",
+  "Detected Serial Ports": "Detected Serial Ports"
 }

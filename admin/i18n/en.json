@@ -2,6 +2,8 @@
   "Settings": "Settings",
   "Serial Port Settings": "Serial Port Settings",
   "Serial Port Path": "Serial Port Path",
+  "Manual Path Entry (e.g. for offline adapter or initial installation)": "Manual Path Entry (e.g. for offline adapter or initial installation)",
+  "Detected Serial Ports": "Detected Serial Ports",
   "Manual Serial Port Path (e.g. COM3 or /dev/ttyUSB0)": "Manual Serial Port Path (e.g. COM3 or /dev/ttyUSB0)",
   "Specify the connection path to your Becker Centronic USB Stick.": "Specify the connection path to your Becker Centronic USB Stick.",
   "Units": "Units",

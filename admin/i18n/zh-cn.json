@@ -9,5 +9,7 @@
   "Paired Units & Remotes": "配对的设备与遥控器",
   "Remote Name": "遥控器名称",
   "Unit Code (5 hex chars, e.g. 1737b)": "设备代码（5 位十六进制字符，例如 1737b）",
-  "Rolling Code Counter (starts at 0)": "滚动码计数器（从 0 开始）"
+  "Rolling Code Counter (starts at 0)": "滚动码计数器（从 0 开始）",
+  "Manual Path Entry (e.g. for offline adapter or initial installation)": "Manual Path Entry (e.g. for offline adapter or initial installation)",
+  "Detected Serial Ports": "Detected Serial Ports"
 }

@@ -9,5 +9,7 @@
   "Paired Units & Remotes": "Unidades e controles remotos emparelhados",
   "Remote Name": "Nome do controle remoto",
   "Unit Code (5 hex chars, e.g. 1737b)": "Código da unidade (5 caracteres hexadecimais, por exemplo, 1737b)",
-  "Rolling Code Counter (starts at 0)": "Contador de código rotativo (começa em 0)"
+  "Rolling Code Counter (starts at 0)": "Contador de código rotativo (começa em 0)",
+  "Manual Path Entry (e.g. for offline adapter or initial installation)": "Manual Path Entry (e.g. for offline adapter or initial installation)",
+  "Detected Serial Ports": "Detected Serial Ports"
 }

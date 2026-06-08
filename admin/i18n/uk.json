@@ -9,5 +9,7 @@
   "Paired Units & Remotes": "Сполучені пристрої та пульти",
   "Remote Name": "Ім's пульта",
   "Unit Code (5 hex chars, e.g. 1737b)": "Код пристрою (5 шістнадцяткових символів, наприклад, 1737b)",
-  "Rolling Code Counter (starts at 0)": "Лічильник змінного коду (починається з 0)"
+  "Rolling Code Counter (starts at 0)": "Лічильник змінного коду (починається з 0)",
+  "Manual Path Entry (e.g. for offline adapter or initial installation)": "Manual Path Entry (e.g. for offline adapter or initial installation)",
+  "Detected Serial Ports": "Detected Serial Ports"
 }

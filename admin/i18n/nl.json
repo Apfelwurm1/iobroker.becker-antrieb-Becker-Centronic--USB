@@ -9,5 +9,7 @@
   "Paired Units & Remotes": "Gekoppelde eenheden & afstandsbedieningen",
   "Remote Name": "Naam afstandsbediening",
   "Unit Code (5 hex chars, e.g. 1737b)": "Unitcode (5 hexadecimale tekens, bijv. 1737b)",
-  "Rolling Code Counter (starts at 0)": "Rolling code teller (begint bij 0)"
+  "Rolling Code Counter (starts at 0)": "Rolling code teller (begint bij 0)",
+  "Manual Path Entry (e.g. for offline adapter or initial installation)": "Manual Path Entry (e.g. for offline adapter or initial installation)",
+  "Detected Serial Ports": "Detected Serial Ports"
 }

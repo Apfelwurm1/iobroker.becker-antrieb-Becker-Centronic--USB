@@ -11,30 +11,31 @@
           "size": 4,
           "text": "Serial Port Settings"
         },
+        "manualMode": {
+          "type": "checkbox",
+          "label": "Manual Path Entry (e.g. for offline adapter or initial installation)",
+          "xs": 12,
+          "sm": 12,
+          "md": 12,
+          "lg": 12,
+          "xl": 12,
+          "default": true
+        },
         "serialPort": {
-          "type": "select",
-          "label": "Serial Port Path",
-          "options": [
-            { "value": "/dev/ttyUSB0", "label": "/dev/ttyUSB0 (Standard USB Serial)" },
-            { "value": "/dev/ttyUSB1", "label": "/dev/ttyUSB1" },
-            { "value": "/dev/ttyAMA0", "label": "/dev/ttyAMA0 (RPi Serial)" },
-            { "value": "COM1", "label": "COM1" },
-            { "value": "COM2", "label": "COM2" },
-            { "value": "COM3", "label": "COM3" },
-            { "value": "COM4", "label": "COM4" },
-            { "value": "manual", "label": "Manuelle Eingabe / Custom Path" }
-          ],
+          "type": "selectSendTo",
+          "label": "Detected Serial Ports",
+          "command": "getSerialPorts",
+          "hidden": "data.manualMode === true",
           "xs": 12,
           "sm": 8,
           "md": 6,
           "lg": 4,
-          "xl": 3,
-          "default": "manual"
+          "xl": 3
         },
         "serialPortManual": {
           "type": "text",
           "label": "Manual Serial Port Path (e.g. COM3 or /dev/ttyUSB0)",
-          "hidden": "data.serialPort !== 'manual'",
+          "hidden": "data.manualMode !== true",
           "xs": 12,
           "sm": 8,
           "md": 6,

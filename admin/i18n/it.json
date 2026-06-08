@@ -9,5 +9,7 @@
   "Paired Units & Remotes": "Unità e telecomandi accoppiati",
   "Remote Name": "Nome del telecomando",
   "Unit Code (5 hex chars, e.g. 1737b)": "Codice unità (5 caratteri esadecimali, es. 1737b)",
-  "Rolling Code Counter (starts at 0)": "Contatore rolling code (inizia da 0)"
+  "Rolling Code Counter (starts at 0)": "Contatore rolling code (inizia da 0)",
+  "Manual Path Entry (e.g. for offline adapter or initial installation)": "Manual Path Entry (e.g. for offline adapter or initial installation)",
+  "Detected Serial Ports": "Detected Serial Ports"
 }
