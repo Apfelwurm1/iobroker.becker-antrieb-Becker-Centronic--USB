@@ -12,8 +12,20 @@
           "text": "Serial Port Settings"
         },
         "serialPort": {
+          "type": "select",
+          "label": "Serial Port Path",
+          "options": "command:getSerialPorts",
+          "xs": 12,
+          "sm": 8,
+          "md": 6,
+          "lg": 4,
+          "xl": 3,
+          "default": "manual"
+        },
+        "serialPortManual": {
           "type": "text",
-          "label": "Serial Port Path (e.g. COM3 or /dev/ttyUSB0)",
+          "label": "Manual Serial Port Path (e.g. COM3 or /dev/ttyUSB0)",
+          "hidden": "data.serialPort !== 'manual'",
           "xs": 12,
           "sm": 8,
           "md": 6,

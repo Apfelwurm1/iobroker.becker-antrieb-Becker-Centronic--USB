@@ -22,7 +22,7 @@
       "pt": "Controle as persianas de enrolar Becker Centronic RF usando um stick serial USB",
       "nl": "Stuur Becker Centronic RF-rolluiken aan met een USB-seriële stick",
       "fr": "Contrôlez les volets roulants Becker Centronic RF à l'aide d'une clé USB série",
-      "it": "Controlla le tapparelle avvolgibili Becker Centronic RF utilizando una chiavetta seriale USB",
+      "it": "Controlla le tapparelle avvolgibili Becker Centronic RF utilizzando una chiavetta seriale USB",
       "es": "Controle las persianas enrollables Becker Centronic RF con una memoria USB serie",
       "pl": "Steruj roletami Becker Centronic RF za pomocą klucza USB Serial",
       "uk": "Керуйте рольставнями Becker Centronic RF за допомогою послідовного USB-накопичувача",
@@ -73,7 +73,8 @@
     }
   },
   "native": {
-    "serialPort": "",
+    "serialPort": "manual",
+    "serialPortManual": "",
     "units": []
   },
   "instanceObjects": [

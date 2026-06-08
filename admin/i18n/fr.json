@@ -1,7 +1,8 @@
 {
   "Settings": "Paramètres",
   "Serial Port Settings": "Paramètres du port série",
-  "Serial Port Path (e.g. COM3 or /dev/ttyUSB0)": "Chemin du port série (par ex. COM3 ou /dev/ttyUSB0)",
+  "Serial Port Path": "Chemin du port série (par ex. COM3 ou /dev/ttyUSB0)",
+  "Manual Serial Port Path (e.g. COM3 or /dev/ttyUSB0)": "Chemin du port série (par ex. COM3 ou /dev/ttyUSB0)",
   "Specify the connection path to your Becker Centronic USB Stick.": "Spécifiez le chemin de connexion de votre clé USB Becker Centronic.",
   "Units": "Unités",
   "Virtual Becker Remotes (Units)": "Télécommandes virtuelles Becker (unités)",

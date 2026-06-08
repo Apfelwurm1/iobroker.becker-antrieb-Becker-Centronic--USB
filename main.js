@@ -27,10 +27,12 @@ class BeckerCentronicUsb extends utils.Adapter {
     this.on('ready', this.onReady.bind(this));
     this.on('stateChange', this.onStateChange.bind(this));
     this.on('unload', this.onUnload.bind(this));
+    this.on('message', this.onMessage.bind(this));
 
     this.port = null;
     this.reconnectTimeout = null;
     this.isClosing = false;
+    this.portPath = '';
   }
 
   /**
@@ -39,11 +41,14 @@ class BeckerCentronicUsb extends utils.Adapter {
   async onReady() {
     this.log.info('Starting Becker Centronic USB adapter...');
 
+    // Resolve port path (dropdown select or manual input)
+    this.portPath = this.config.serialPort === 'manual' ? this.config.serialPortManual : this.config.serialPort;
+
     // 1. Initialize objects/states
     await this.initUnits();
 
     // 2. Open serial connection
-    if (this.config.serialPort) {
+    if (this.portPath) {
       this.openSerialPort();
     } else {
       this.log.warn('No serial port configured. Please configure a serial port in the adapter settings.');
@@ -167,7 +172,7 @@ class BeckerCentronicUsb extends utils.Adapter {
       }
     }
 
-    this.log.info(`Connecting to Becker USB stick on ${this.config.serialPort} (115200 Baud)...`);
+    this.log.info(`Connecting to Becker USB stick on ${this.portPath} (115200 Baud)...`);
     
     if (!SerialPort) {
       this.log.error('serialport module could not be loaded.');
@@ -177,13 +182,13 @@ class BeckerCentronicUsb extends utils.Adapter {
 
     try {
       this.port = new SerialPort({
-        path: this.config.serialPort,
+        path: this.portPath,
         baudRate: 115200,
         autoOpen: false
       });
 
       this.port.on('open', () => {
-        this.log.info(`Serial port ${this.config.serialPort} opened successfully.`);
+        this.log.info(`Serial port ${this.portPath} opened successfully.`);
         this.setState('info.connection', true, true);
       });
 
@@ -209,173 +214,4 @@ class BeckerCentronicUsb extends utils.Adapter {
         }
       });
 
-    } catch (err) {
-      this.log.error(`Error initializing serial port: ${err.message}`);
-      this.setState('info.connection', false, true);
-      this.scheduleReconnect();
-    }
-  }
-
-  /**
-   * Schedule serial connection retry
-   */
-  scheduleReconnect() {
-    if (this.reconnectTimeout || this.isClosing) return;
-
-    this.log.info('Scheduling serial reconnect in 10 seconds...');
-    this.reconnectTimeout = this.setTimeout(() => {
-      this.reconnectTimeout = null;
-      this.openSerialPort();
-    }, 10000);
-  }
-
-  /**
-   * Send command packet to Becker USB Stick
-   * @param {string} unitId 5-char hex
-   * @param {number} channel 1-7
-   * @param {number} cmdCode command hex code
-   */
-  async sendBeckerCommand(unitId, channel, cmdCode) {
-    // 1. Get current increment
-    const stateId = `units.${unitId}.increment`;
-    const incState = await this.getStateAsync(stateId);
-    let increment = incState ? parseInt(incState.val, 10) : 0;
-    if (isNaN(increment)) increment = 0;
-
-    // 2. Generate packet
-    let codeStr;
-    try {
-      codeStr = becker.generateCode(unitId, channel, cmdCode, increment);
-    } catch (err) {
-      this.log.error(`Failed to generate Becker packet: ${err.message}`);
-      return;
-    }
-
-    const packet = becker.finalizeCode(codeStr);
-    this.log.info(`Sending Becker RF Centronic command: Unit ${unitId}, Channel ${channel}, Cmd ${cmdCode} (Inc: ${increment}) -> Hex packet: ${codeStr}`);
-
-    // 3. Write to serial port
-    if (this.port && this.port.isOpen) {
-      this.port.write(packet, (err) => {
-        if (err) {
-          this.log.error(`Failed to write to serial port: ${err.message}`);
-        } else {
-          this.log.debug('Packet written to serial port.');
-        }
-      });
-    } else {
-      this.log.error(`Cannot send command: Serial port is not open (Device: ${this.config.serialPort})`);
-    }
-
-    // 4. Increment and save
-    await this.setStateAsync(stateId, increment + 1, true);
-  }
-
-  /**
-   * Is called if a subscribed state changes
-   * @param {string} id
-   * @param {ioBroker.State | null | undefined} state
-   */
-  async onStateChange(id, state) {
-    if (!state || state.ack) {
-      // State was deleted or change is already acknowledged
-      return;
-    }
-
-    this.log.debug(`State change requested: ${id} = ${state.val}`);
-
-    // Expecting: becker-centronic-usb.0.units.<unitId>.ch<channel>.<stateName>
-    const parts = id.split('.');
-    if (parts.length < 6 || parts[2] !== 'units') return;
-
-    const unitId = parts[3];
-    const chStr = parts[4]; // e.g. "ch1"
-    const stateName = parts[5]; // e.g. "up", "level"
-
-    const channel = parseInt(chStr.replace('ch', ''), 10);
-    if (isNaN(channel) || channel < 1 || channel > 7) return;
-
-    if (stateName === 'level') {
-      const levelVal = parseInt(state.val, 10);
-      if (isNaN(levelVal) || levelVal < 0 || levelVal > 100) return;
-
-      let cmdCode;
-      if (levelVal === 100) {
-        cmdCode = becker.COMMANDS.UP;
-      } else if (levelVal === 0) {
-        cmdCode = becker.COMMANDS.DOWN;
-      } else {
-        cmdCode = becker.COMMANDS.DOWN_IP; // sun protection position
-      }
-
-      await this.sendBeckerCommand(unitId, channel, cmdCode);
-      await this.setStateAsync(id, levelVal, true); // Ack level change
-    } else {
-      // Button commands
-      if (state.val === true) {
-        let cmdCode = null;
-        switch (stateName) {
-          case 'up':
-            cmdCode = becker.COMMANDS.UP;
-            break;
-          case 'down':
-            cmdCode = becker.COMMANDS.DOWN;
-            break;
-          case 'halt':
-            cmdCode = becker.COMMANDS.HALT;
-            break;
-          case 'pair':
-            cmdCode = becker.COMMANDS.PAIR;
-            break;
-          case 'up_ip':
-            cmdCode = becker.COMMANDS.UP_IP;
-            break;
-          case 'down_ip':
-            cmdCode = becker.COMMANDS.DOWN_IP;
-            break;
-        }
-
-        if (cmdCode !== null) {
-          await this.sendBeckerCommand(unitId, channel, cmdCode);
-        }
-
-        // Reset button with ack=true
-        await this.setStateAsync(id, false, true);
-      }
-    }
-  }
-
-  /**
-   * Is called when adapter shuts down - callback has to be called under any circumstances!
-   * @param {() => void} callback
-   */
-  onUnload(callback) {
-    try {
-      this.isClosing = true;
-      if (this.reconnectTimeout) {
-        clearTimeout(this.reconnectTimeout);
-      }
-      if (this.port && this.port.isOpen) {
-        this.port.close(() => {
-          this.log.info('Closed serial port connection during unloading.');
-          callback();
-        });
-      } else {
-        callback();
-      }
-    } catch (e) {
-      callback();
-    }
-  }
-}
-
-if (require.main !== module) {
-  // Export the constructor in compact mode
-  /**
-   * @param {Partial<utils.AdapterOptions>} [options]
-   */
-  module.exports = (options) => new BeckerCentronicUsb(options);
-} else {
-  // otherwise start the instance directly
-  new BeckerCentronicUsb();
-}
+    } catch (err) {      this.log.error(`Error initializing serial port: ${err.message}`);      this.setState('info.connection', false, true);      this.scheduleReconnect();    }  }  /**   * Schedule serial connection retry   */  scheduleReconnect() {    if (this.reconnectTimeout || this.isClosing) return;    this.log.info('Scheduling serial reconnect in 10 seconds...');    this.reconnectTimeout = this.setTimeout(() => {      this.reconnectTimeout = null;      this.openSerialPort();    }, 10000);  }  /**   * Send command packet to Becker USB Stick   * @param {string} unitId 5-char hex   * @param {number} channel 1-7   * @param {number} cmdCode command hex code   */  async sendBeckerCommand(unitId, channel, cmdCode) {    const stateId = `units.${unitId}.increment`;    const incState = await this.getStateAsync(stateId);    let increment = incState ? parseInt(incState.val, 10) : 0;    if (isNaN(increment)) increment = 0;    let codeStr;    try {      codeStr = becker.generateCode(unitId, channel, cmdCode, increment);    } catch (err) {      this.log.error(`Failed to generate Becker packet: ${err.message}`);      return;    }    const packet = becker.finalizeCode(codeStr);    this.log.info(`Sending Becker RF Centronic command: Unit ${unitId}, Channel ${channel}, Cmd ${cmdCode} (Inc: ${increment}) -> Hex packet: ${codeStr}`);    if (this.port && this.port.isOpen) {      this.port.write(packet, (err) => {        if (err) {          this.log.error(`Failed to write to serial port: ${err.message}`);        } else {          this.log.debug('Packet written to serial port.');        }      });    } else {      this.log.error(`Cannot send command: Serial port is not open (Device: ${this.portPath})`);    }    await this.setStateAsync(stateId, increment + 1, true);  }  /**   * Is called if a subscribed state changes   * @param {string} id   * @param {ioBroker.State | null | undefined} state   */  async onStateChange(id, state) {    if (!state || state.ack) {      return;    }    this.log.debug(`State change requested: ${id} = ${state.val}`);    const parts = id.split('.');    if (parts.length < 6 || parts[2] !== 'units') return;    const unitId = parts[3];    const chStr = parts[4];    const stateName = parts[5];    const channel = parseInt(chStr.replace('ch', ''), 10);    if (isNaN(channel) || channel < 1 || channel > 7) return;    if (stateName === 'level') {      const levelVal = parseInt(state.val, 10);      if (isNaN(levelVal) || levelVal < 0 || levelVal > 100) return;      let cmdCode;      if (levelVal === 100) {        cmdCode = becker.COMMANDS.UP;      } else if (levelVal === 0) {        cmdCode = becker.COMMANDS.DOWN;      } else {        cmdCode = becker.COMMANDS.DOWN_IP;      }      await this.sendBeckerCommand(unitId, channel, cmdCode);      await this.setStateAsync(id, levelVal, true);    } else {      if (state.val === true) {        let cmdCode = null;        switch (stateName) {          case 'up':            cmdCode = becker.COMMANDS.UP;            break;          case 'down':            cmdCode = becker.COMMANDS.DOWN;            break;          case 'halt':            cmdCode = becker.COMMANDS.HALT;            break;          case 'pair':            cmdCode = becker.COMMANDS.PAIR;            break;          case 'up_ip':            cmdCode = becker.COMMANDS.UP_IP;            break;          case 'down_ip':            cmdCode = becker.COMMANDS.DOWN_IP;            break;        }        if (cmdCode !== null) {          await this.sendBeckerCommand(unitId, channel, cmdCode);        }        await this.setStateAsync(id, false, true);      }    }  }  /**   * Some message was sent to this instance over message box   * @param {ioBroker.Message} obj   */  async onMessage(obj) {    if (obj && obj.command === 'getSerialPorts' && obj.callback) {      const options = [        { value: 'manual', label: 'Manuelle Eingabe / Custom Path' }      ];      let currentVal = '';      try {        const instanceConfig = await this.getForeignObjectAsync(`system.adapter.${this.namespace}`);        if (instanceConfig && instanceConfig.native) {          currentVal = instanceConfig.native.serialPort;        }      } catch (err) {      }      try {        const { SerialPort } = require('serialport');        const ports = await SerialPort.list();        let currentValFound = false;        for (const port of ports) {          options.push({            value: port.path,            label: `${port.path}${port.friendlyName ? ` (${port.friendlyName})` : ''}`          });          if (port.path === currentVal) {            currentValFound = true;          }        }        if (currentVal && currentVal !== 'manual' && !currentValFound) {          options.push({            value: currentVal,            label: `${currentVal} (Aktuell konfiguriert - nicht verbunden)`          });        }      } catch (err) {        this.log.error(`Failed to list serial ports: ${err.message}`);        if (currentVal && currentVal !== 'manual') {          options.push({            value: currentVal,            label: `${currentVal} (Aktuell konfiguriert)`          });        }      }      this.sendTo(obj.from, obj.command, options, obj.callback);    }  }  /**   * Is called when adapter shuts down - callback has to be called under any circumstances!   * @param {() => void} callback   */  onUnload(callback) {    try {      this.isClosing = true;      if (this.reconnectTimeout) {        clearTimeout(this.reconnectTimeout);      }      if (this.port && this.port.isOpen) {        this.port.close(() => {          this.log.info('Closed serial port connection during unloading.');          callback();        });      } else {        callback();      }    } catch (e) {      callback();    }  }}if (require.main !== module) {  module.exports = (options) => new BeckerCentronicUsb(options);} else {  new BeckerCentronicUsb();}

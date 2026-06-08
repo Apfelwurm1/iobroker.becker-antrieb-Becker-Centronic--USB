@@ -1,7 +1,8 @@
 {
   "Settings": "设置",
   "Serial Port Settings": "串口设置",
-  "Serial Port Path (e.g. COM3 or /dev/ttyUSB0)": "串口路径（例如 COM3 或 /dev/ttyUSB0）",
+  "Serial Port Path": "串口路径（例如 COM3 或 /dev/ttyUSB0）",
+  "Manual Serial Port Path (e.g. COM3 or /dev/ttyUSB0)": "串口路径（例如 COM3 或 /dev/ttyUSB0）",
   "Specify the connection path to your Becker Centronic USB Stick.": "指定 Becker Centronic USB 棒 la 的连接路径。",
   "Units": "设备",
   "Virtual Becker Remotes (Units)": "虚拟 Becker 遥控器（设备）",

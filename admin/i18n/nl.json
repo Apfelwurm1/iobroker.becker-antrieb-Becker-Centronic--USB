@@ -1,7 +1,8 @@
 {
   "Settings": "Instellingen",
   "Serial Port Settings": "Seriële poort instellingen",
-  "Serial Port Path (e.g. COM3 or /dev/ttyUSB0)": "Pad naar seriële poort (bijv. COM3 of /dev/ttyUSB0)",
+  "Serial Port Path": "Pad naar seriële poort (bijv. COM3 of /dev/ttyUSB0)",
+  "Manual Serial Port Path (e.g. COM3 or /dev/ttyUSB0)": "Pad naar seriële poort (bijv. COM3 of /dev/ttyUSB0)",
   "Specify the connection path to your Becker Centronic USB Stick.": "Geef het verbindingspad naar uw Becker Centronic USB-stick op.",
   "Units": "Eenheden",
   "Virtual Becker Remotes (Units)": "Virtuele Becker afstandsbedieningen (eenheden)",

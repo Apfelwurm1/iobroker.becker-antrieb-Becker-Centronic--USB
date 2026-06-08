@@ -1,7 +1,8 @@
 {
   "Settings": "Налаштування",
   "Serial Port Settings": "Налаштування послідовного порту",
-  "Serial Port Path (e.g. COM3 or /dev/ttyUSB0)": "Шлях до послідовного порту (наприклад, COM3 або /dev/ttyUSB0)",
+  "Serial Port Path": "Шлях до послідовного порту (наприклад, COM3 або /dev/ttyUSB0)",
+  "Manual Serial Port Path (e.g. COM3 or /dev/ttyUSB0)": "Шлях до послідовного порту (наприклад, COM3 або /dev/ttyUSB0)",
   "Specify the connection path to your Becker Centronic USB Stick.": "Вкажіть шлях підключення до вашого USB-накопичувача Becker Centronic.",
   "Units": "Пристрої",
   "Virtual Becker Remotes (Units)": "Віртуальні пульти Becker (пристрої)",
