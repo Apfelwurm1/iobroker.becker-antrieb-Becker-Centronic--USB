@@ -4,6 +4,8 @@
   "Serial Port Path": "Serial Port Path",
   "Manual Path Entry (e.g. for offline adapter or initial installation)": "Manual Path Entry (e.g. for offline adapter or initial installation)",
   "Detected Serial Ports": "Detected Serial Ports",
+  "Generate Random Unit Code (Copy and paste into table)": "Generate Random Unit Code (Copy and paste into table)",
+  "Generate Code": "Generate Code",
   "Manual Serial Port Path (e.g. COM3 or /dev/ttyUSB0)": "Manual Serial Port Path (e.g. COM3 or /dev/ttyUSB0)",
   "Specify the connection path to your Becker Centronic USB Stick.": "Specify the connection path to your Becker Centronic USB Stick.",
   "Units": "Units",

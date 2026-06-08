@@ -4,6 +4,8 @@
   "Serial Port Path": "Pfad zur seriellen Schnittstelle",
   "Manual Path Entry (e.g. for offline adapter or initial installation)": "Manuelle Pfad-Eingabe (z.B. bei Offline-Adapter oder Erstinstallation)",
   "Detected Serial Ports": "Erkannte serielle Anschlüsse",
+  "Generate Random Unit Code (Copy and paste into table)": "Zufälligen Unit-Code generieren (Kopieren und in Tabelle einfügen)",
+  "Generate Code": "Code generieren",
   "Manual Serial Port Path (e.g. COM3 or /dev/ttyUSB0)": "Manueller Pfad zur seriellen Schnittstelle (z.B. COM3 oder /dev/ttyUSB0)",
   "Specify the connection path to your Becker Centronic USB Stick.": "Geben Sie den Verbindungspfad zu Ihrem Becker Centronic USB-Stick an.",
   "Units": "Geräte (Units)",

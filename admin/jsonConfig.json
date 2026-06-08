@@ -67,6 +67,17 @@
           "size": 4,
           "text": "Virtual Becker Remotes (Units)"
         },
+        "generateCodeButton": {
+          "type": "button",
+          "label": "Generate Random Unit Code (Copy and paste into table)",
+          "text": "Generate Code",
+          "command": "generateRandomCode",
+          "xs": 12,
+          "sm": 6,
+          "md": 4,
+          "lg": 3,
+          "xl": 2
+        },
         "units": {
           "type": "table",
           "label": "Paired Units & Remotes",

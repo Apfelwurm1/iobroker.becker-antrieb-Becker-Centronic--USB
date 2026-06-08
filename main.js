@@ -397,6 +397,13 @@ class BeckerCentronicUsb extends utils.Adapter {
         }
       }
       this.sendTo(obj.from, obj.command, options, obj.callback);
+    } else if (obj && obj.command === 'generateRandomCode' && obj.callback) {
+      const chars = '0123456789abcdef';
+      let code = '';
+      for (let i = 0; i < 5; i++) {
+        code += chars[Math.floor(Math.random() * chars.length)];
+      }
+      this.sendTo(obj.from, obj.command, { msg: `Zufälliger Code: ${code}`, result: code }, obj.callback);
     }
   }
 
