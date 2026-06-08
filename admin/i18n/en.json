@@ -6,6 +6,7 @@
   "Detected Serial Ports": "Detected Serial Ports",
   "Random Unit Code (Copy from here)": "Random Unit Code (Copy from here)",
   "Generate Random Unit Code": "Generate Random Unit Code",
+  "Each row in the table represents a virtual remote control. Only one unique Unit Code (5 hex characters) must be used per remote control. This code is required to pair the virtual remote with the roller shutter motor.": "Each row in the table represents a virtual remote control. Only one unique Unit Code (5 hex characters) must be used per remote control. This code is required to pair the virtual remote with the roller shutter motor.",
   "Generate Random Unit Code (Copy and paste into table)": "Generate Random Unit Code (Copy and paste into table)",
   "Generate Code": "Generate Code",
   "Manual Serial Port Path (e.g. COM3 or /dev/ttyUSB0)": "Manual Serial Port Path (e.g. COM3 or /dev/ttyUSB0)",

@@ -67,6 +67,20 @@
           "size": 4,
           "text": "Virtual Becker Remotes (Units)"
         },
+        "infoUnits": {
+          "type": "staticText",
+          "text": "Each row in the table represents a virtual remote control. Only one unique Unit Code (5 hex characters) must be used per remote control. This code is required to pair the virtual remote with the roller shutter motor.",
+          "xs": 12,
+          "sm": 12,
+          "md": 12,
+          "lg": 12,
+          "xl": 12,
+          "style": {
+            "fontStyle": "italic",
+            "color": "gray",
+            "marginBottom": "15px"
+          }
+        },
         "generateCodeButton": {
           "type": "sendTo",
           "label": "Generate Random Unit Code",
