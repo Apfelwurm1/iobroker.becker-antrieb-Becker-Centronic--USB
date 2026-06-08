@@ -68,7 +68,7 @@
           "text": "Virtual Becker Remotes (Units)"
         },
         "generateCodeButton": {
-          "type": "button",
+          "type": "sendTo",
           "label": "Generate Random Unit Code (Copy and paste into table)",
           "text": "Generate Code",
           "command": "generateRandomCode",
