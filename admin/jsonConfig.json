@@ -12,9 +12,9 @@
           "text": "Serial Port Settings"
         },
         "serialPort": {
-          "type": "select",
+          "type": "selectSendTo",
           "label": "Serial Port Path",
-          "options": "command:getSerialPorts",
+          "command": "getSerialPorts",
           "xs": 12,
           "sm": 8,
           "md": 6,
