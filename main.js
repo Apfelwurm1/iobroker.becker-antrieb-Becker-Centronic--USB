@@ -403,7 +403,7 @@ class BeckerCentronicUsb extends utils.Adapter {
       for (let i = 0; i < 5; i++) {
         code += chars[Math.floor(Math.random() * chars.length)];
       }
-      this.sendTo(obj.from, obj.command, { msg: `Zufälliger Code: ${code}`, result: code }, obj.callback);
+      this.sendTo(obj.from, obj.command, { text: code }, obj.callback);
     }
   }
 
