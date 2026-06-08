@@ -12,9 +12,18 @@
           "text": "Serial Port Settings"
         },
         "serialPort": {
-          "type": "selectSendTo",
+          "type": "select",
           "label": "Serial Port Path",
-          "command": "getSerialPorts",
+          "options": [
+            { "value": "/dev/ttyUSB0", "label": "/dev/ttyUSB0 (Standard USB Serial)" },
+            { "value": "/dev/ttyUSB1", "label": "/dev/ttyUSB1" },
+            { "value": "/dev/ttyAMA0", "label": "/dev/ttyAMA0 (RPi Serial)" },
+            { "value": "COM1", "label": "COM1" },
+            { "value": "COM2", "label": "COM2" },
+            { "value": "COM3", "label": "COM3" },
+            { "value": "COM4", "label": "COM4" },
+            { "value": "manual", "label": "Manuelle Eingabe / Custom Path" }
+          ],
           "xs": 12,
           "sm": 8,
           "md": 6,
