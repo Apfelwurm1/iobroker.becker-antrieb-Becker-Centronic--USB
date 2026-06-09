@@ -282,23 +282,38 @@ class BeckerCentronicUsb extends utils.Adapter {
    * @param {ioBroker.State | null | undefined} state
    */
   async onStateChange(id, state) {
-    if (!state || state.ack) {
-      // State was deleted or change is already acknowledged
+    if (!state) {
+      this.log.info(`State deleted: ${id}`);
       return;
     }
 
-    this.log.debug(`State change requested: ${id} = ${state.val}`);
+    // Check if the state belongs to our namespace
+    if (!id.startsWith(this.namespace + '.')) {
+      return;
+    }
 
-    // Expecting: becker-centronic-usb.0.units.<unitId>.ch<channel>.<stateName>
-    const parts = id.split('.');
-    if (parts.length < 6 || parts[2] !== 'units') return;
+    this.log.info(`State change received: ${id} = ${state.val} (ack: ${state.ack})`);
 
-    const unitId = parts[3];
-    const chStr = parts[4]; // e.g. "ch1"
-    const stateName = parts[5]; // e.g. "up", "level"
+    if (state.ack) {
+      // State change is already acknowledged
+      return;
+    }
+
+    // Expecting relative ID: units.<unitId>.ch<channel>.<stateName>
+    const relId = id.substring(this.namespace.length + 1);
+    const parts = relId.split('.');
+    if (parts.length < 4 || parts[0] !== 'units') {
+      return;
+    }
+
+    const unitId = parts[1];
+    const chStr = parts[2]; // e.g. "ch1"
+    const stateName = parts[3]; // e.g. "up", "level"
 
     const channel = parseInt(chStr.replace('ch', ''), 10);
-    if (isNaN(channel) || channel < 1 || channel > 7) return;
+    if (isNaN(channel) || channel < 1 || channel > 7) {
+      return;
+    }
 
     if (stateName === 'level') {
       const levelVal = parseInt(state.val, 10);
@@ -316,8 +331,8 @@ class BeckerCentronicUsb extends utils.Adapter {
       await this.sendBeckerCommand(unitId, channel, cmdCode);
       await this.setStateAsync(id, levelVal, true); // Ack level change
     } else {
-      // Button commands
-      if (state.val === true) {
+      // Button commands - match boolean true, string 'true', number 1, or string '1'
+      if (state.val === true || state.val === 'true' || state.val === 1 || state.val === '1') {
         let cmdCode = null;
         switch (stateName) {
           case 'up':
