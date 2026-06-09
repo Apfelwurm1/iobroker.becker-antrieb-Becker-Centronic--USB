@@ -10,11 +10,11 @@
   "Remote Name": "Naam afstandsbediening",
   "Unit Code (5 hex chars, e.g. 1737b)": "Unitcode (5 hexadecimale tekens, bijv. 1737b)",
   "Rolling Code Counter (starts at 0)": "Rolling code teller (begint bij 0)",
-  "Manual Path Entry (e.g. for offline adapter or initial installation)": "Manual Path Entry (e.g. for offline adapter or initial installation)",
-  "Detected Serial Ports": "Detected Serial Ports",
-  "Generate Random Unit Code (Copy and paste into table)": "Generate Random Unit Code (Copy and paste into table)",
-  "Generate Code": "Generate Code",
-  "Random Unit Code (Copy from here)": "Random Unit Code (Copy from here)",
-  "Generate Random Unit Code": "Generate Random Unit Code",
-  "Each row in the table represents a virtual remote control. Only one unique Unit Code (5 hex characters) must be used per remote control. This code is required to pair the virtual remote with the roller shutter motor.": "Each row in the table represents a virtual remote control. Only one unique Unit Code (5 hex characters) must be used per remote control. This code is required to pair the virtual remote with the roller shutter motor."
+  "Manual Path Entry (e.g. for offline adapter or initial installation)": "Handmatige padinvoer (bijv. voor offline adapter of eerste installatie)",
+  "Detected Serial Ports": "Gedetecteerde seriële poorten",
+  "Generate Random Unit Code (Copy and paste into table)": "Genereer willekeurige unitcode (Kopiëren en in tabel plakken)",
+  "Generate Code": "Genereer code",
+  "Random Unit Code (Copy from here)": "Willekeurige unitcode (Kopieer hier)",
+  "Generate Random Unit Code": "Genereer willekeurige unitcode",
+  "Each row in the table represents a virtual remote control. Only one unique Unit Code (5 hex characters) must be used per remote control. This code is required to pair the virtual remote with the roller shutter motor.": "Elke rij in de tabel vertegenwoordigt een virtuele afstandsbediening. Er mag slechts één unieke Unit Code (5 hex-tekens) per afstandsbediening worden gebruikt. Deze code is vereist om de virtuele afstandsbediening te koppelen met de rolluikmotor."
 }

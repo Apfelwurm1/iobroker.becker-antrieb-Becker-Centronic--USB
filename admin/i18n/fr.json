@@ -10,11 +10,11 @@
   "Remote Name": "Nom de la télécommande",
   "Unit Code (5 hex chars, e.g. 1737b)": "Code d'unité (5 caractères hexadécimaux, par ex. 1737b)",
   "Rolling Code Counter (starts at 0)": "Compteur de code tournant (commence à 0)",
-  "Manual Path Entry (e.g. for offline adapter or initial installation)": "Manual Path Entry (e.g. for offline adapter or initial installation)",
-  "Detected Serial Ports": "Detected Serial Ports",
-  "Generate Random Unit Code (Copy and paste into table)": "Generate Random Unit Code (Copy and paste into table)",
-  "Generate Code": "Generate Code",
-  "Random Unit Code (Copy from here)": "Random Unit Code (Copy from here)",
-  "Generate Random Unit Code": "Generate Random Unit Code",
-  "Each row in the table represents a virtual remote control. Only one unique Unit Code (5 hex characters) must be used per remote control. This code is required to pair the virtual remote with the roller shutter motor.": "Each row in the table represents a virtual remote control. Only one unique Unit Code (5 hex characters) must be used per remote control. This code is required to pair the virtual remote with the roller shutter motor."
+  "Manual Path Entry (e.g. for offline adapter or initial installation)": "Saisie manuelle du chemin (ex. pour adaptateur hors ligne ou première installation)",
+  "Detected Serial Ports": "Ports série détectés",
+  "Generate Random Unit Code (Copy and paste into table)": "Générer un code d'unité aléatoire (Copier et coller dans le tableau)",
+  "Generate Code": "Générer le code",
+  "Random Unit Code (Copy from here)": "Code d'unité aléatoire (Copier d'ici)",
+  "Generate Random Unit Code": "Générer un code d'unité aléatoire",
+  "Each row in the table represents a virtual remote control. Only one unique Unit Code (5 hex characters) must be used per remote control. This code is required to pair the virtual remote with the roller shutter motor.": "Chaque ligne du tableau représente une télécommande virtuelle. Un seul code d'unité unique (5 caractères hexadécimaux) doit être utilisé par télécommande. Ce code est requis pour appairer la télécommande virtuelle avec le moteur du volet roulant."
 }

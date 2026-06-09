@@ -10,11 +10,11 @@
   "Remote Name": "Nombre del mando",
   "Unit Code (5 hex chars, e.g. 1737b)": "Código de unidad (5 caracteres hexadecimales, p. ej., 1737b)",
   "Rolling Code Counter (starts at 0)": "Contador de código rotativo (empieza en 0)",
-  "Manual Path Entry (e.g. for offline adapter or initial installation)": "Manual Path Entry (e.g. for offline adapter or initial installation)",
-  "Detected Serial Ports": "Detected Serial Ports",
-  "Generate Random Unit Code (Copy and paste into table)": "Generate Random Unit Code (Copy and paste into table)",
-  "Generate Code": "Generate Code",
-  "Random Unit Code (Copy from here)": "Random Unit Code (Copy from here)",
-  "Generate Random Unit Code": "Generate Random Unit Code",
-  "Each row in the table represents a virtual remote control. Only one unique Unit Code (5 hex characters) must be used per remote control. This code is required to pair the virtual remote with the roller shutter motor.": "Each row in the table represents a virtual remote control. Only one unique Unit Code (5 hex characters) must be used per remote control. This code is required to pair the virtual remote with the roller shutter motor."
+  "Manual Path Entry (e.g. for offline adapter or initial installation)": "Entrada manual de ruta (p. ej., para adaptador offline o instalación inicial)",
+  "Detected Serial Ports": "Puertos serie detectados",
+  "Generate Random Unit Code (Copy and paste into table)": "Generar código de unidad aleatorio (Copiar y pegar en la tabla)",
+  "Generate Code": "Generar código",
+  "Random Unit Code (Copy from here)": "Código de unidad aleatorio (Copiar desde aquí)",
+  "Generate Random Unit Code": "Generar código de unidad aleatorio",
+  "Each row in the table represents a virtual remote control. Only one unique Unit Code (5 hex characters) must be used per remote control. This code is required to pair the virtual remote with the roller shutter motor.": "Cada fila de la tabla representa un mando virtual. Se debe utilizar un único código de unidad (5 caracteres hexadecimales) por mando. Este código es necesario para emparejar el mando virtual con el motor de la persiana."
 }

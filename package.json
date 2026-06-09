@@ -37,7 +37,7 @@
     "eslint": "^8.57.0"
   },
   "scripts": {
-    "test": "echo \"No tests specified\"",
+    "test": "node test/test_becker.js",
     "lint": "eslint ."
   }
 }

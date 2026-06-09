@@ -10,11 +10,11 @@
   "Remote Name": "Nome del telecomando",
   "Unit Code (5 hex chars, e.g. 1737b)": "Codice unità (5 caratteri esadecimali, es. 1737b)",
   "Rolling Code Counter (starts at 0)": "Contatore rolling code (inizia da 0)",
-  "Manual Path Entry (e.g. for offline adapter or initial installation)": "Manual Path Entry (e.g. for offline adapter or initial installation)",
-  "Detected Serial Ports": "Detected Serial Ports",
-  "Generate Random Unit Code (Copy and paste into table)": "Generate Random Unit Code (Copy and paste into table)",
-  "Generate Code": "Generate Code",
-  "Random Unit Code (Copy from here)": "Random Unit Code (Copy from here)",
-  "Generate Random Unit Code": "Generate Random Unit Code",
-  "Each row in the table represents a virtual remote control. Only one unique Unit Code (5 hex characters) must be used per remote control. This code is required to pair the virtual remote with the roller shutter motor.": "Each row in the table represents a virtual remote control. Only one unique Unit Code (5 hex characters) must be used per remote control. This code is required to pair the virtual remote with the roller shutter motor."
+  "Manual Path Entry (e.g. for offline adapter or initial installation)": "Inserimento manuale del percorso (es. per adattatore offline o prima installazione)",
+  "Detected Serial Ports": "Porte seriali rilevate",
+  "Generate Random Unit Code (Copy and paste into table)": "Genera codice unità casuale (Copia e incolla nella tabella)",
+  "Generate Code": "Genera codice",
+  "Random Unit Code (Copy from here)": "Codice unità casuale (Copia da qui)",
+  "Generate Random Unit Code": "Genera codice unità casuale",
+  "Each row in the table represents a virtual remote control. Only one unique Unit Code (5 hex characters) must be used per remote control. This code is required to pair the virtual remote with the roller shutter motor.": "Ogni riga della tabella rappresenta un telecomando virtuale. Deve essere utilizzato un solo codice unità univoco (5 caratteri esadecimali) per telecomando. Questo codice è necessario per accoppiare il telecomando virtuale con il motore della tapparella."
 }

@@ -261,19 +261,25 @@ class BeckerCentronicUsb extends utils.Adapter {
 
     // 3. Write to serial port
     if (this.port && this.port.isOpen) {
-      this.port.write(packet, (err) => {
-        if (err) {
-          this.log.error(`Failed to write to serial port: ${err.message}`);
-        } else {
-          this.log.debug('Packet written to serial port.');
-        }
-      });
+      try {
+        await new Promise((resolve, reject) => {
+          this.port.write(packet, (err) => {
+            if (err) {
+              reject(err);
+            } else {
+              resolve();
+            }
+          });
+        });
+        this.log.debug('Packet written to serial port.');
+        // 4. Increment and save (only on success)
+        await this.setStateAsync(stateId, increment + 1, true);
+      } catch (err) {
+        this.log.error(`Failed to write to serial port: ${err.message}`);
+      }
     } else {
       this.log.error(`Cannot send command: Serial port is not open (Device: ${this.portPath})`);
     }
-
-    // 4. Increment and save
-    await this.setStateAsync(stateId, increment + 1, true);
   }
 
   /**
@@ -292,7 +298,7 @@ class BeckerCentronicUsb extends utils.Adapter {
       return;
     }
 
-    this.log.info(`State change received: ${id} = ${state.val} (ack: ${state.ack})`);
+    this.log.debug(`State change received: ${id} = ${state.val} (ack: ${state.ack})`);
 
     if (state.ack) {
       // State change is already acknowledged
@@ -370,7 +376,7 @@ class BeckerCentronicUsb extends utils.Adapter {
    * @param {ioBroker.Message} obj
    */
   async onMessage(obj) {
-    this.log.info(`Received message command: ${obj ? obj.command : 'undefined'}`);
+    this.log.debug(`Received message command: ${obj ? obj.command : 'undefined'}`);
     if (obj && obj.command === 'getSerialPorts' && obj.callback) {
       const options = [];
       let currentVal = '';
@@ -413,10 +419,16 @@ class BeckerCentronicUsb extends utils.Adapter {
       }
       this.sendTo(obj.from, obj.command, options, obj.callback);
     } else if (obj && obj.command === 'generateRandomCode' && obj.callback) {
-      const chars = '0123456789abcdef';
       let code = '';
-      for (let i = 0; i < 5; i++) {
-        code += chars[Math.floor(Math.random() * chars.length)];
+      try {
+        const crypto = require('crypto');
+        code = crypto.randomBytes(3).toString('hex').substring(0, 5);
+      } catch (err) {
+        // Fallback if crypto is unavailable (highly unlikely in Node.js)
+        const chars = '0123456789abcdef';
+        for (let i = 0; i < 5; i++) {
+          code += chars[Math.floor(Math.random() * chars.length)];
+        }
       }
       this.sendTo(obj.from, obj.command, { native: { generatedCode: code } }, obj.callback);
     }
@@ -430,7 +442,7 @@ class BeckerCentronicUsb extends utils.Adapter {
     try {
       this.isClosing = true;
       if (this.reconnectTimeout) {
-        clearTimeout(this.reconnectTimeout);
+        this.clearTimeout(this.reconnectTimeout);
       }
       if (this.port && this.port.isOpen) {
         this.port.close(() => {

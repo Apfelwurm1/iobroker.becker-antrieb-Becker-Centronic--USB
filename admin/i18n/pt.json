@@ -10,11 +10,11 @@
   "Remote Name": "Nome do controle remoto",
   "Unit Code (5 hex chars, e.g. 1737b)": "Código da unidade (5 caracteres hexadecimais, por exemplo, 1737b)",
   "Rolling Code Counter (starts at 0)": "Contador de código rotativo (começa em 0)",
-  "Manual Path Entry (e.g. for offline adapter or initial installation)": "Manual Path Entry (e.g. for offline adapter or initial installation)",
-  "Detected Serial Ports": "Detected Serial Ports",
-  "Generate Random Unit Code (Copy and paste into table)": "Generate Random Unit Code (Copy and paste into table)",
-  "Generate Code": "Generate Code",
-  "Random Unit Code (Copy from here)": "Random Unit Code (Copy from here)",
-  "Generate Random Unit Code": "Generate Random Unit Code",
-  "Each row in the table represents a virtual remote control. Only one unique Unit Code (5 hex characters) must be used per remote control. This code is required to pair the virtual remote with the roller shutter motor.": "Each row in the table represents a virtual remote control. Only one unique Unit Code (5 hex characters) must be used per remote control. This code is required to pair the virtual remote with the roller shutter motor."
+  "Manual Path Entry (e.g. for offline adapter or initial installation)": "Entrada manual de caminho (por exemplo, para adaptador offline ou instalação inicial)",
+  "Detected Serial Ports": "Portas serie detetadas",
+  "Generate Random Unit Code (Copy and paste into table)": "Gerar código de unidade aleatório (Copiar e colar na tabela)",
+  "Generate Code": "Gerar código",
+  "Random Unit Code (Copy from here)": "Código de unidade aleatório (Copiar daqui)",
+  "Generate Random Unit Code": "Gerar código de unidade aleatório",
+  "Each row in the table represents a virtual remote control. Only one unique Unit Code (5 hex characters) must be used per remote control. This code is required to pair the virtual remote with the roller shutter motor.": "Cada linha na tabela representa um controlo remoto virtual. Deve ser usado apenas um código de unidade exclusivo (5 caracteres hexadecimais) por controlo remoto. Este código é necessário para emparelhar o controlo remoto virtual com o motor da persiana."
 }

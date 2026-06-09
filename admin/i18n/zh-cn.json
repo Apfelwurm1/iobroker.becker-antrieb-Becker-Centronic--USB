@@ -10,11 +10,11 @@
   "Remote Name": "遥控器名称",
   "Unit Code (5 hex chars, e.g. 1737b)": "设备代码（5 位十六进制字符，例如 1737b）",
   "Rolling Code Counter (starts at 0)": "滚动码计数器（从 0 开始）",
-  "Manual Path Entry (e.g. for offline adapter or initial installation)": "Manual Path Entry (e.g. for offline adapter or initial installation)",
-  "Detected Serial Ports": "Detected Serial Ports",
-  "Generate Random Unit Code (Copy and paste into table)": "Generate Random Unit Code (Copy and paste into table)",
-  "Generate Code": "Generate Code",
-  "Random Unit Code (Copy from here)": "Random Unit Code (Copy from here)",
-  "Generate Random Unit Code": "Generate Random Unit Code",
-  "Each row in the table represents a virtual remote control. Only one unique Unit Code (5 hex characters) must be used per remote control. This code is required to pair the virtual remote with the roller shutter motor.": "Each row in the table represents a virtual remote control. Only one unique Unit Code (5 hex characters) must be used per remote control. This code is required to pair the virtual remote with the roller shutter motor."
+  "Manual Path Entry (e.g. for offline adapter or initial installation)": "手动输入路径（例如，用于离线适配器或首次安装）",
+  "Detected Serial Ports": "检测到的串口",
+  "Generate Random Unit Code (Copy and paste into table)": "生成随机单元代码（复制并粘贴到表格中）",
+  "Generate Code": "生成代码",
+  "Random Unit Code (Copy from here)": "随机单元代码（从此处复制）",
+  "Generate Random Unit Code": "生成随机单元代码",
+  "Each row in the table represents a virtual remote control. Only one unique Unit Code (5 hex characters) must be used per remote control. This code is required to pair the virtual remote with the roller shutter motor.": "表格中的每一行代表一个虚拟遥控器。每个遥控器必须使用一个唯一的单元代码（5个十六进制字符）。需要此代码来将虚拟遥控器与卷帘电机配对。"
 }

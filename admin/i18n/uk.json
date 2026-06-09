@@ -10,11 +10,11 @@
   "Remote Name": "Ім's пульта",
   "Unit Code (5 hex chars, e.g. 1737b)": "Код пристрою (5 шістнадцяткових символів, наприклад, 1737b)",
   "Rolling Code Counter (starts at 0)": "Лічильник змінного коду (починається з 0)",
-  "Manual Path Entry (e.g. for offline adapter or initial installation)": "Manual Path Entry (e.g. for offline adapter or initial installation)",
-  "Detected Serial Ports": "Detected Serial Ports",
-  "Generate Random Unit Code (Copy and paste into table)": "Generate Random Unit Code (Copy and paste into table)",
-  "Generate Code": "Generate Code",
-  "Random Unit Code (Copy from here)": "Random Unit Code (Copy from here)",
-  "Generate Random Unit Code": "Generate Random Unit Code",
-  "Each row in the table represents a virtual remote control. Only one unique Unit Code (5 hex characters) must be used per remote control. This code is required to pair the virtual remote with the roller shutter motor.": "Each row in the table represents a virtual remote control. Only one unique Unit Code (5 hex characters) must be used per remote control. This code is required to pair the virtual remote with the roller shutter motor."
+  "Manual Path Entry (e.g. for offline adapter or initial installation)": "Ручне введення шляху (наприклад, для автономного адаптера або першої установки)",
+  "Detected Serial Ports": "Виявлені послідовні порти",
+  "Generate Random Unit Code (Copy and paste into table)": "Згенерувати випадковий код пристрою (Скопіювати та вставити в таблицю)",
+  "Generate Code": "Згенерувати код",
+  "Random Unit Code (Copy from here)": "Випадковий код пристрою (Скопіюйте звідси)",
+  "Generate Random Unit Code": "Згенерувати випадковий код пристрою",
+  "Each row in the table represents a virtual remote control. Only one unique Unit Code (5 hex characters) must be used per remote control. This code is required to pair the virtual remote with the roller shutter motor.": "Кожен рядок у таблиці представляє віртуальний пульт керування. Для кожного пульта необхідно використовувати тільки один унікальний код пристрою (5 шістнадцяткових символів). Цей код потрібен для сполучення віртуального пульта з мотором рольставні."
 }
