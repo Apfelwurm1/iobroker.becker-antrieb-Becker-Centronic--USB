@@ -239,8 +239,9 @@ class BeckerCentronicUsb extends utils.Adapter {
    * @param {string} unitId 5-char hex
    * @param {number} channel 1-7
    * @param {number} cmdCode command hex code
+   * @param {boolean} [skipRelease=false] skip automatic button release packet
    */
-  async sendBeckerCommand(unitId, channel, cmdCode) {
+  async sendBeckerCommand(unitId, channel, cmdCode, skipRelease = false) {
     // 1. Get current increment
     const stateId = `units.${unitId}.increment`;
     const incState = await this.getStateAsync(stateId);
@@ -274,6 +275,14 @@ class BeckerCentronicUsb extends utils.Adapter {
         this.log.debug('Packet written to serial port.');
         // 4. Increment and save (only on success)
         await this.setStateAsync(stateId, increment + 1, true);
+
+        // 5. Automatically send RELEASE command after a short delay (250ms)
+        if (cmdCode !== becker.COMMANDS.RELEASE && !skipRelease) {
+          this.setTimeout(async () => {
+            this.log.debug(`Automatically sending RELEASE command after cmd ${cmdCode}...`);
+            await this.sendBeckerCommand(unitId, channel, becker.COMMANDS.RELEASE, true);
+          }, 250);
+        }
       } catch (err) {
         this.log.error(`Failed to write to serial port: ${err.message}`);
       }
