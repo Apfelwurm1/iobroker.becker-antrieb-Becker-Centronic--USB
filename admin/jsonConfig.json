@@ -84,7 +84,6 @@
         "generateCodeButton": {
           "type": "sendTo",
           "label": "Generate Random Unit Code",
-          "text": "Generate Code",
           "command": "generateRandomCode",
           "useNative": true,
           "xs": 12,
